@@ -65,25 +65,18 @@ span{
     width: 75vw;
     margin: 0 auto;
     margin-top: 3vh;
-    background: black;
+    background: rgba(91, 128, 138, 0.75);
     border-radius: 20px;
     padding-bottom: 30px;
 }
 
 img{
-    width: 20vw;
-    margin: 30px;
+    width: 25vw;
+    margin: 35px;
 }
 
 table{
     margin:30px;
-    font-size: 25px;
+    font-size: 30px;
     color: white;
-}
-
-.bottom-content td{
-    width: 10vw;
-}
-caption{
-    text-align: left;
 }

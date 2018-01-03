@@ -29,4 +29,10 @@ public class CountryFacade extends AbstractFacade<Country> {
         super(Country.class);
     }
     
+    public Country findByName(String name){
+        return  (Country) em.createNamedQuery("Country.findByName")
+                .setParameter("name",name.toUpperCase())
+                .getResultList()
+                .get(0);
+    }
 }

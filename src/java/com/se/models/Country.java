@@ -162,4 +162,8 @@ public class Country implements Serializable {
         return "com.se.jpa.Country[ id=" + id + " ]";
     }
     
+    public String getFlag(){
+        return iso.toLowerCase()+".png";
+    }
+    
 }

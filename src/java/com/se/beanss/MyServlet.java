@@ -6,6 +6,7 @@
 package com.se.beanss;
 
 import com.se.ejb.CountryFacade;
+import com.se.models.Country;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.ejb.EJB;
@@ -36,23 +37,12 @@ public class MyServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet MyServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet MyServlet at " + request.getContextPath()+cf.count()+ "</h1>");
-            
-            out.println("<p> "+cf.find(1).getNicename()+"</p>");
-            out.println("</body>");
-            out.println("</html>");
-            
-            
-        }
+        
+        String name = request.getParameter("countryName");
+        Country c = cf.findByName(name);
+        
+        request.setAttribute("cou", c);
+        request.getRequestDispatcher("result.jsp").forward(request,response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
