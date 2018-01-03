@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.se.beanss;
+package com.se.controllers;
 
 import com.se.ejb.CountryFacade;
 import com.se.models.Country;
@@ -38,11 +38,19 @@ public class MyServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
-        String name = request.getParameter("countryName");
-        Country c = cf.findByName(name);
         
-        request.setAttribute("cou", c);
-        request.getRequestDispatcher("result.jsp").forward(request,response);
+        String name = request.getParameter("countryName");
+        try{
+            Country c = cf.findByName(name);
+            request.setAttribute("cou", c);
+            request.getRequestDispatcher("result.jsp").forward(request,response);
+        
+        }catch(Exception e){
+            request.setAttribute("message","We cannot find this country in our database! ");
+            request.getRequestDispatcher("result.jsp").forward(request,response);
+        }
+       
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

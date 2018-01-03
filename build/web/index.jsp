@@ -19,6 +19,7 @@
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="decoration/validateTextField.js"></script>
     <style>
     #btnSubmit{
         position: absolute;
@@ -29,18 +30,18 @@
 <body>
 
     <div class="container">
-        <form action="MyServlet">
+        <form action="MyServlet" id="form" >
             <h1>Enter the country's name :</h1>
-            <input type="text" name="countryName"> <br>
+            <input type="text" name="countryName" id ="countryName"> <br>
             <input type="submit" id="btnSubmit" value="SEARCH">
 
         </form>
     </div>
 
     <div id="footer">
+        
         <span>Lectured by: Pro. Daru Sima</span><br>
         <span>Created &nbsp;by: Mr. Samrith Yoeun</span><br>
-        <span>${countryController.count()} Countries in Database</span>
         
     </div>
     <div id="clouds">
@@ -50,7 +51,6 @@
 
 
     </div>
-
 
 </body>
 </html>

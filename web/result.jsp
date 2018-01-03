@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <html lang="en">
 <head>
     <title>Countries code</title>
@@ -11,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="decoration/validateTextField.js"></script>
     <style>
         input[type="text"]{
             width: 66vw;
@@ -36,43 +38,54 @@
 
 <div>
     <div class="container" style="padding-top: 30px">
-        <form action="MyServlet" method="POST">
+        <form action="MyServlet" method="POST" id="form">
             <h1>Enter the country's name :</h1>
-            <input type="text" name="countryName">
+            <input type="text" name="countryName" id="countryName">
             <input type="submit" id="btnSubmit" value="SEARCH">
 
         </form>
     </div>
 
     <div class="content">
+        
+        
+      
         <div class="top-content">
-            <img src="image/${cou.getFlag()}" alt="${cou.getFlag()}" style="float: left">
-            <table style="float:left">
-                <tr>
-                    <td>Country : </td> <td> ${cou.getName()}</td>
-                </tr>
-                <tr>
-                    <td>Nice Name : </td> <td> ${cou.getNicename()}</td>
-                </tr>
-                
-                <tr>
-                    <td>ISO Code :&nbsp; </td><td> ${cou.getIso()}</td>
-                </tr>
-                <tr>
-                    <td>ISO3 Code : </td> <td> ${cou.getIso3()}</td>
-                </tr>
-                <tr>
-                    <td>Numcode : </td> <td> ${cou.getNumcode()}</td>
-                </tr>
-                <tr>
-                    <td>PhoneCode : &nbsp;&nbsp;&nbsp;</td> <td> ${cou.getPhonecode()}</td>
-                </tr>
-               
+            <c:choose>               
+                <c:when  test = "${not empty message}">
+                    <br>
+                    <h1>${message}</h1>
+                </c:when>
+                <c:when test ="${empty message}">           
+                    <img src="image/${cou.getFlag()}" alt="${cou.getFlag()}" style="float: left">
+                    <table style="float:left">
+                        <tr>
+                            <td>Country : </td> <td> ${cou.getName()}</td>
+                        </tr>
+                        <tr>
+                            <td>Nice Name : </td> <td> ${cou.getNicename()}</td>
+                        </tr>
 
-            </table>
-        </div>
-        <div style="clear: both;"></div>
-       
+                        <tr>
+                            <td>ISO Code :&nbsp; </td><td> ${cou.getIso()}</td>
+                        </tr>
+                        <tr>
+                            <td>ISO3 Code : </td> <td> ${cou.getIso3()}</td>
+                        </tr>
+                        <tr>
+                            <td>Numcode : </td> <td> ${cou.getNumcode()}</td>
+                        </tr>
+                        <tr>
+                            <td>PhoneCode : &nbsp;&nbsp;&nbsp;</td> <td> +${cou.getPhonecode()}</td>
+                        </tr>
+
+
+                    </table>
+                </div>
+                <div style="clear: both;"></div>
+           
+                </c:when>
+            </c:choose>
     </div>
 
     <div id="footer">

@@ -11,10 +11,9 @@
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="decoration/validateTextField.js"></script>
     <style>
-        input[type="text"]{
-            width: 66vw;
-        }
+       
 
         #btnSubmit{
             width: 8vw;
@@ -29,6 +28,14 @@
             overflow-x: hidden;
             opacity: 0.7;
         }
+        
+        input[type="text"]{
+            width: 20vw;
+        }
+        
+        #textbox{
+            width: 66vw;
+        }
     </style>
 </head>
 <body>
@@ -36,59 +43,51 @@
 
 <div>
     <div class="container" style="padding-top: 30px">
-        <form action="search-country">
+        <form action="MyServlet" method="POST">
             <h1>Enter the country's name :</h1>
-            <input type="text" name="countryName">
+            <input type="text" name="countryName" id="textbox">
             <input type="submit" id="btnSubmit" value="SEARCH">
 
         </form>
     </div>
 
     <div class="content">
+        <h1>${message}</h1>
+        <form action="action">
+             <div class="content">
         <div class="top-content">
-            <img src="image/kh.png" alt="KH flag" style="float: left">
+            <img src="image/${cou.getFlag()}" alt="${cou.getFlag()}" style="float: left">
             <table style="float:left">
                 <tr>
-                    <td>Country : </td> <td> datahere</td>
+                    <td>Country : </td> <td> <input type="text" name ="name"/></td>
                 </tr>
                 <tr>
-                    <td>Country Code :&nbsp; </td><td> datahere</td>
+                    <td>Nice Name : </td> <td> <input type="text" name ="nicename"/></td>
+                </tr>
+                
+                <tr>
+                    <td>ISO Code :&nbsp; </td><td> <input type="text" name ="iso"/></td>
                 </tr>
                 <tr>
-                    <td>ISO Code : </td> <td> datahere</td>
+                    <td>ISO3 Code : </td> <td> <input type="text" name ="iso3"/></td>
                 </tr>
                 <tr>
-                    <td>Population : </td> <td> datahere</td>
+                    <td>Numcode : </td> <td> <input type="text" name ="numcode"/></td>
                 </tr>
                 <tr>
-                    <td>Area : </td> <td> datahere</td>
+                    <td>PhoneCode : &nbsp;&nbsp;&nbsp;</td> <td><input type="text" name ="phonecode" value="+"/></td>
                 </tr>
-                <tr>
-                    <td>GDP : </td> <td> datahere</td>
-                </tr>
-
+               
 
             </table>
         </div>
+        <div style="clear: both;"></div>
+       
+    </div>
 
-        <table class="bottom-content">
-            <caption>This country has the following regions :<br></caption>
-            <tr>
-                <td> datahere</td><td> datahere</td><td> datahere</td><td> datahere</td><td> datahere</td><td> datahere</td>
-            </tr>
-            <tr>
-                <td> datahere</td><td> datahere</td><td> datahere</td><td> datahere</td><td> datahere</td><td> datahere</td>
-            </tr>
-            <tr>
-                <td> datahere</td><td> datahere</td><td> datahere</td><td> datahere</td><td> datahere</td><td> datahere</td>
-            </tr>
-            <tr>
-                <td> datahere</td><td> datahere</td><td> datahere</td><td> datahere</td><td> datahere</td><td> datahere</td>
-            </tr>
-
-        </table>
-
-
+        </form>
+        
+       
     </div>
 
     <div id="footer">
