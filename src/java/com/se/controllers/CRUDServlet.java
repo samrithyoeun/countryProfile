@@ -54,30 +54,32 @@ public class CRUDServlet extends HttpServlet {
         String iso3 = request.getParameter("iso3");
         
         
-        try (PrintWriter out = response.getWriter()) {
+        
             String action = request.getParameter("action").toLowerCase();
-
+            String message="";
             if ("add country".equals(action)) {
                
                 Country c = new Country(id,iso,name,nicename,iso3,numcode,phonecode);
                 cf.add(c);
+                message ="Add sucessfully";
                 uploadImage(request,response);
-                
-//                out.print(c.toString());
-                Search(request,response,c.getName());
                 
                     
             } else if ("update country".equals(action)) {
-                out.write("<p>update country</p>");
                 cf.edit(new Country(id,iso,name,nicename,iso3,numcode,phonecode));
+                message ="Update sucessfully";
                 uploadImage(request,response);
                 
+                
             }else if ("delete country".equals(action)){
-                out.write("<p>delete country</p>");
                 cf.remove(id);
+                message ="Delete sucessfully";
+                
                 
             }
-        }
+             try (PrintWriter outt = response.getWriter()) {
+               outt.println(message);
+               }
     }
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -90,7 +92,7 @@ public class CRUDServlet extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
     }
-    private void uploadImage(HttpServletRequest request,HttpServletResponse response) throws IOException, ServletException{
+    private void uploadImage(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
     response.setContentType("text/html;charset=UTF-8");
     final String path = "/Users/samrith/Desktop/WebApplication5/web/image";
          response.setContentType("text/html;charset=UTF-8");
@@ -131,7 +133,11 @@ public class CRUDServlet extends HttpServlet {
         if (writer != null) {
             writer.close();
         }
+        
+        
     }
+    
+              
     }
 
     public void Search(HttpServletRequest request,HttpServletResponse response,String name) throws IOException, ServletException{
