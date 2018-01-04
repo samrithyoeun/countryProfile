@@ -19,13 +19,25 @@ h1{
     padding-left: 10px;
 }
 
-input[type=text],#textbox {
+input[type=text] {
     box-sizing: border-box;
     padding-left: 15px;
     font-size: 25px;
     background: white;
     opacity: 0.55;
     width: 75vw;
+    height: 40px;
+    border-radius: 30px;
+    border: none;
+
+}
+input[type=button] {
+    box-sizing: border-box;
+    padding-left: 15px;
+    font-size: 25px;
+    background: #2F00F5;
+    opacity: 0.55;
+    width: 15vw;
     height: 40px;
     border-radius: 30px;
     border: none;
@@ -47,6 +59,10 @@ input[type=text]:focus{
     width: 120px;
     border: 2px solid white;
 
+}
+
+.btnSubmit{
+    font-size:20px 
 }
 
 span{

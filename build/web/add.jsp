@@ -33,31 +33,31 @@
             width: 20vw;
         }
         
+        table,.buttonGroup{
+            margin: 0 auto;
+        }
         #textbox{
             width: 66vw;
         }
+        
+    
     </style>
 </head>
 <body>
 
 
 <div>
-    <div class="container" style="padding-top: 30px">
-        <form action="MyServlet" method="POST">
-            <h1>Enter the country's name :</h1>
-            <input type="text" name="countryName" id="textbox">
-            <input type="submit" id="btnSubmit" value="SEARCH">
-
-        </form>
-    </div>
+ 
 
     <div class="content">
-        <h1>${message}</h1>
-        <form action="action">
-             <div class="content">
-        <div class="top-content">
-            <img src="image/${cou.getFlag()}" alt="${cou.getFlag()}" style="float: left">
-            <table style="float:left">
+        
+        <form action="MyServlet" method="POST">
+             
+       
+            <br>
+            <br>
+            <table>
+                <tr> <td>CID : </td> <td><input type="text" name ="id"/></td></tr>
                 <tr>
                     <td>Country : </td> <td> <input type="text" name ="name"/></td>
                 </tr>
@@ -66,7 +66,7 @@
                 </tr>
                 
                 <tr>
-                    <td>ISO Code :&nbsp; </td><td> <input type="text" name ="iso"/></td>
+                    <td>ISO Code : </td><td> <input type="text" name ="iso"/></td>
                 </tr>
                 <tr>
                     <td>ISO3 Code : </td> <td> <input type="text" name ="iso3"/></td>
@@ -77,11 +77,24 @@
                 <tr>
                     <td>PhoneCode : &nbsp;&nbsp;&nbsp;</td> <td><input type="text" name ="phonecode" value="+"/></td>
                 </tr>
-               
-
+                <tr>
+                    <td>Flag : </td> <td><input type="file" id="file" name ="Browse Image"/><br> </td>
+                </tr>
+                <tr style="textalignment: center">
+                    <td colspan="2">
+                    <input type="submit" value="ADD COUNTRY" class="btnSubmit"> 
+                    <input type="submit" value="DELETE COUNTRY" class="btnSubmit"> 
+                    <input type="submit" value="UPDATE COUNTRY" class="btnSubmit">  
+                    </td>
+                </tr>  
             </table>
-        </div>
-        <div style="clear: both;"></div>
+          
+            <br>
+          
+                
+            </div>
+       
+       
        
     </div>
 
@@ -95,12 +108,6 @@
         <span>Created &nbsp;by: Mr. Samrith Yoeun</span>
     </div>
 </div>
-    <div id="clouds">
-        <div id="cloud3"></div>
-        <div id="cloud1"></div>
-        <div id="cloud2"></div>
 
-
-    </div>
 </body>
 </html>
