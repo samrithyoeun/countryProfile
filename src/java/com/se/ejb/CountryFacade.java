@@ -25,6 +25,10 @@ public class CountryFacade extends AbstractFacade<Country> {
         return em;
     }
 
+    public void add(Country c){
+        this.create(c);
+    }
+    
     public CountryFacade() {
         super(Country.class);
     }
@@ -35,4 +39,14 @@ public class CountryFacade extends AbstractFacade<Country> {
                 .getResultList()
                 .get(0);
     }
+    
+    public void remove(int id){
+        em.remove(
+                em.createNamedQuery("Country.findById")
+                .setParameter("id",id)
+                .getResultList()
+                .get(0));
+    }
+    
+    
 }

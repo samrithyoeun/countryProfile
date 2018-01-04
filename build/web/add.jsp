@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="decoration/validateTextField.js"></script>
+   
     <style>
        
 
@@ -51,40 +51,40 @@
 
     <div class="content">
         
-        <form action="MyServlet" method="POST">
+        <form action="CRUDServlet" method="POST" enctype="multipart/form-data">
              
        
             <br>
             <br>
             <table>
-                <tr> <td>CID : </td> <td><input type="text" name ="id"/></td></tr>
+                <tr> <td>CID : </td> <td><input type="text" name ="id" /></td></tr>
                 <tr>
-                    <td>Country : </td> <td> <input type="text" name ="name"/></td>
+                    <td>Country : </td> <td> <input type="text" name ="name" value="THAILANDA"/></td>
                 </tr>
                 <tr>
-                    <td>Nice Name : </td> <td> <input type="text" name ="nicename"/></td>
+                    <td>Nice Name : </td> <td> <input type="text" name ="nicename" value="thailands"/></td>
                 </tr>
                 
                 <tr>
-                    <td>ISO Code : </td><td> <input type="text" name ="iso"/></td>
+                    <td>ISO Code : </td><td> <input type="text" name ="iso" value="th"/></td>
                 </tr>
                 <tr>
-                    <td>ISO3 Code : </td> <td> <input type="text" name ="iso3"/></td>
+                    <td>ISO3 Code : </td> <td> <input type="text" name ="iso3" value ="thr"/></td>
                 </tr>
                 <tr>
-                    <td>Numcode : </td> <td> <input type="text" name ="numcode"/></td>
+                    <td>Numcode : </td> <td> <input type="text" name ="numcode" value="34"/></td>
                 </tr>
                 <tr>
-                    <td>PhoneCode : &nbsp;&nbsp;&nbsp;</td> <td><input type="text" name ="phonecode" value="+"/></td>
+                    <td>PhoneCode : &nbsp;&nbsp;&nbsp;</td> <td><input type="text" name ="phonecode" value="844"/></td>
                 </tr>
                 <tr>
-                    <td>Flag : </td> <td><input type="file" id="file" name ="Browse Image"/><br> </td>
+                    <td>Flag : </td> <td><input type="file" id="file" name ="file"/><br> </td>
                 </tr>
                 <tr style="textalignment: center">
                     <td colspan="2">
-                    <input type="submit" value="ADD COUNTRY" class="btnSubmit"> 
-                    <input type="submit" value="DELETE COUNTRY" class="btnSubmit"> 
-                    <input type="submit" value="UPDATE COUNTRY" class="btnSubmit">  
+                    <input type="submit" value="ADD COUNTRY" class="btnSubmit" name="action" > 
+                    <input type="submit" value="DELETE COUNTRY" class="btnSubmit" name="action" > 
+                    <input type="submit" value="UPDATE COUNTRY" class="btnSubmit" name="action" >  
                     </td>
                 </tr>  
             </table>

@@ -43,20 +43,16 @@ public class Country implements Serializable {
     private Integer id;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 2)
     @Column(name = "ISO")
     private String iso;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 80)
     @Column(name = "NAME")
     private String name;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 80)
     @Column(name = "NICENAME")
     private String nicename;
-    @Size(max = 3)
     @Column(name = "ISO3")
     private String iso3;
     @Column(name = "NUMCODE")
@@ -78,6 +74,16 @@ public class Country implements Serializable {
         this.iso = iso;
         this.name = name;
         this.nicename = nicename;
+        this.phonecode = phonecode;
+    }
+
+    public Country(Integer id, String iso, String name, String nicename, String iso3, Integer numcode, int phonecode) {
+        this.id = id;
+        this.iso = iso;
+        this.name = name;
+        this.nicename = nicename;
+        this.iso3 = iso3;
+        this.numcode = numcode;
         this.phonecode = phonecode;
     }
 
@@ -159,8 +165,10 @@ public class Country implements Serializable {
 
     @Override
     public String toString() {
-        return "com.se.jpa.Country[ id=" + id + " ]";
+        return "Country{" + "id=" + id + ", iso=" + iso + ", name=" + name + ", nicename=" + nicename + ", iso3=" + iso3 + ", numcode=" + numcode + ", phonecode=" + phonecode + '}';
     }
+
+    
     
     public String getFlag(){
         return iso.toLowerCase()+".png";
