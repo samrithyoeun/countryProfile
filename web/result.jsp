@@ -77,8 +77,8 @@
                 </c:when>
                 <c:when test ="${empty message}">      
                     <div style="margin:25px;">
-                        <a href="" style="float: left"> &lt; Homepage</a>
-                        <a href="" style="float: left">CRUD Fuction&gt; </a>
+                        <a href="index.jsp" style="float: left"> &lt; Homepage</a>
+                        <a href="add.jsp" style="float: left">CRUD Fuction&gt; </a>
                     </div>  
                     <div style="clear:both">
                     <img src="image/${cou.getFlag()}" alt="${cou.getFlag()}" style="float: left">

@@ -48,7 +48,5 @@ public class CountryFacade extends AbstractFacade<Country> {
                 .get(0));
     }
     
-    public String returnToHome(){
-        return "index.jsp?faces-redirect=true";
-    }
+    
 }
