@@ -31,6 +31,24 @@
             overflow-x: hidden;
             opacity: 0.7;
         }
+        
+        a{
+            border-radius: 30px;
+            border: 2px white solid;
+            color: white;
+            background: rgba(255,255,255,0);
+            padding: 5px 15px 5px 15px;
+            text-decoration: none;
+            font-size: 20px;
+            margin:10px;
+            margin-left: 25px;
+        }
+        
+        a:hover{
+            color: white;
+            background: rgba(0,0,0,0.6);    
+        }
+        
     </style>
 </head>
 <body>
@@ -51,12 +69,18 @@
         
       
         <div class="top-content">
+            
             <c:choose>               
                 <c:when  test = "${not empty message}">
                     <br>
                     <h1>${message}</h1>
                 </c:when>
-                <c:when test ="${empty message}">           
+                <c:when test ="${empty message}">      
+                    <div style="margin:25px;">
+                        <a href="" style="float: left"> &lt; Homepage</a>
+                        <a href="" style="float: left">CRUD Fuction&gt; </a>
+                    </div>  
+                    <div style="clear:both">
                     <img src="image/${cou.getFlag()}" alt="${cou.getFlag()}" style="float: left">
                     <table style="float:left">
                         <tr>
@@ -81,11 +105,12 @@
 
 
                     </table>
-                </div>
-                <div style="clear: both;"></div>
-           
+                    </div>
+                    <div style="clear: both;"></div>
+                
                 </c:when>
             </c:choose>
+            
     </div>
 
     <div id="footer">
