@@ -62,24 +62,38 @@ public class CRUDServlet extends HttpServlet {
                 Country c = new Country(id,iso,name,nicename,iso3,numcode,phonecode);
                 cf.add(c);
                 message ="Add sucessfully";
-                uploadImage(request,response);
+                try (PrintWriter outt = response.getWriter()) {
+                    outt.println("<h1>"+message+"</h1>");
+                }
+                uploadImage(request,response,message);
+                
+                
                 
                     
             } else if ("update country".equals(action)) {
                 cf.edit(new Country(id,iso,name,nicename,iso3,numcode,phonecode));
                 message ="Update sucessfully";
-                uploadImage(request,response);
+                 try (PrintWriter outt = response.getWriter()) {
+                    outt.println("<h1>"+message+"</h1>");
+                }
+                uploadImage(request,response,message);
+                
+                
+                
                 
                 
             }else if ("delete country".equals(action)){
                 cf.remove(id);
                 message ="Delete sucessfully";
+                 try (PrintWriter outt = response.getWriter()) {
+                    outt.println("<h1>"+message+"</h1>");
+                }
+                
+               
                 
                 
             }
-             try (PrintWriter outt = response.getWriter()) {
-               outt.println(message);
-               }
+             
     }
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -92,7 +106,7 @@ public class CRUDServlet extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
     }
-    private void uploadImage(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
+    private void uploadImage(HttpServletRequest request, HttpServletResponse response, String message) throws IOException, ServletException{
     response.setContentType("text/html;charset=UTF-8");
     final String path = "/Users/samrith/Desktop/WebApplication5/web/image";
          response.setContentType("text/html;charset=UTF-8");
@@ -133,6 +147,7 @@ public class CRUDServlet extends HttpServlet {
         if (writer != null) {
             writer.close();
         }
+        
         
         
     }

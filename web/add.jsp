@@ -3,7 +3,6 @@
 <head>
     <title>Countries code</title>
     <meta charset="utf-8">
-    <meta name="author" content="Kelly Meyers">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
     <link href="decoration/cloud-background.css" rel="stylesheet" type="text/css">
@@ -104,7 +103,7 @@
     </div>
 
     <div id="footer">
-        <span>Lectured by: Pro. Daru Sima</span><br>
+        <span>Lectured by: Pro. Dorin Sima</span><br>
         <span>Created &nbsp;by: Mr. Samrith Yoeun</span>
     </div>
 </div>
